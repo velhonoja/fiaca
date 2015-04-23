@@ -11,5 +11,6 @@ Features
 
 Possible other features planned (open for discussion)
 - Print area-information
+- Yes
 
 

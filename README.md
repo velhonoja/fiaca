@@ -14,3 +14,10 @@ Possible other features planned (open for discussion)
 - Yes
 
 
+Roadmap:
+- define/discuss/choose core features for this software
+- choose tools: PHP, latest CodeIgniter, MySQL, deployed to LAMP-stack
+- design database tables
+- all other stuff
+
+

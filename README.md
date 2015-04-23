@@ -7,7 +7,9 @@ Features
 - Manage different geographical areas
 - Manage users and connect them to specific areas to perform a specific task 
 - Manage task-types
-- (Print area-information?)
-- 
+
+
+Possible other features planned (open for discussion)
+- Print area-information
 
 

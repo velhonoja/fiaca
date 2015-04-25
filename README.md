@@ -24,4 +24,5 @@ Roadmap:
 - create GRUD gui for events
 - all other stuff
 
-..
+Data integration from old system:
+- ...

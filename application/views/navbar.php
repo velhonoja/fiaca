@@ -1,0 +1,1 @@
+<p><?php echo anchor("eventTypeManager", "this"); ?></p>

@@ -24,5 +24,7 @@ Roadmap:
 - create GRUD gui for events
 - all other stuff
 
-Data integration from old system:
-- ...
+Work coordination:
+Data transclusion/transfer from old system: (reimakarvonen)
+Finish event_type controller/model/view, create default event types (velhonoja)
+

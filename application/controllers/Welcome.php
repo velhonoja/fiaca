@@ -29,9 +29,21 @@ $query = $this->db->query("CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
-			$this->load->view('welcome_message');
+			// EVENT TABLE CREATE METHOD::
+
+$this->db->query( "CREATE TABLE IF NOT EXISTS `event` (
+  `event_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `event_area` int(10) unsigned NOT NULL,
+  `event_user` int(10) unsigned NOT NULL,
+  `event_typeref` int(10) unsigned NOT NULL,
+  `event_start_date` date NOT NULL,
+  `event_end_date` date DEFAULT NULL,
+  PRIMARY KEY (`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1" );
 		
-		
+
+                        
+                        
 		
 		
 	}

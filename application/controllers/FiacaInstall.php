@@ -20,24 +20,32 @@ class FiacaInstall extends CI_Controller {
             echo "going to initalize user table<br/>";
             $this->initalizeUserTable();
             echo "ready...<br/><br/>";
+        } else {
+            echo "<p>User table exists. Doing nothing.</p>";
         }
 
         if (!$this->db->table_exists("area")) {
             echo "going to initalize area table<br/>";
             $this->initalizeAreaTable();
             echo "ready...<br/><br/>";
+        } else {
+            echo "<p>Area table exits. Doing nothing</p>";
         }
         
         if (!$this->db->table_exists("event")) {
             echo "going to initalize event table<br/>";
             $this->initalizeEventTable();
             echo "ready...<br/><br/>";
+        } else {
+            echo "<p>Event table exits. Doing nothing</p>";
         }
 
         if (!$this->db->table_exists("event_type")) {
             echo "going to initalize event_type table<br/>";
             $this->initalizeEventTypeTable();
             echo "ready...<br/><br/>";
+        } else {
+            echo "<p>Event_type table exits. Doing nothing</p>";
         }
 
 

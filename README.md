@@ -11,13 +11,17 @@ Features
 
 Possible other features planned (open for discussion)
 - Print area-information
-- Yes
+
+
 
 
 Roadmap:
 - define/discuss/choose core features for this software
 - choose tools: PHP, latest CodeIgniter, MySQL, deployed to LAMP-stack
 - design database tables
+- create install -feature which creates database tables if not present (assumes that database is set up in application/config/database.php)
+- create GRUD operations for users, areas and event_types (UserManager, AreaManager, EventTypeManager - controllers?)
+- create GRUD gui for events
 - all other stuff
 
 

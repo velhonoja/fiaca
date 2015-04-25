@@ -25,6 +25,6 @@ Roadmap:
 - all other stuff
 
 Work coordination:
-Data transclusion/transfer from old system: (reimakarvonen)
-Finish event_type controller/model/view, create default event types (velhonoja)
+- Data transclusion/transfer from old system: (reimakarvonen)
+- Finish event_type controller/model/view, create default event types (velhonoja)
 

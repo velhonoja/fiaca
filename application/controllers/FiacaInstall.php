@@ -14,14 +14,33 @@ class FiacaInstall extends CI_Controller {
      */
     public function install() {
 
-
+	echo "<h1>Fiaca - install</h1>";
 
         if (!$this->db->table_exists("user")) {
             echo "going to initalize user table<br/>";
             $this->initalizeUserTable();
             echo "ready...<br/><br/>";
         }
+
+        if (!$this->db->table_exists("area")) {
+            echo "going to initalize area table<br/>";
+            $this->initalizeAreaTable();
+            echo "ready...<br/><br/>";
+        }
         
+        if (!$this->db->table_exists("event")) {
+            echo "going to initalize event table<br/>";
+            $this->initalizeEventTable();
+            echo "ready...<br/><br/>";
+        }
+
+        if (!$this->db->table_exists("event_type")) {
+            echo "going to initalize event_type table<br/>";
+            $this->initalizeEventTypeTable();
+            echo "ready...<br/><br/>";
+        }
+
+
         
     }
 
@@ -37,6 +56,45 @@ class FiacaInstall extends CI_Controller {
         PRIMARY KEY (`user_id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
     }
+
+    public function initalizeAreaTable() {
+        $query = $this->db->query("CREATE TABLE IF NOT EXISTS `area` (
+        `area_id` int(11) NOT NULL AUTO_INCREMENT,
+        `area_code` varchar(100) NOT NULL,
+        `area_location` varchar(255) NOT NULL,
+        `area_tostats` tinyint(1) NOT NULL DEFAULT '1',
+	`area_group` varchar(100) NOT NULL,
+        PRIMARY KEY (`area_id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+    }
+
+
+    public function initalizeEventTable() {
+	$this->db->query( "CREATE TABLE IF NOT EXISTS `event` (
+	  `event_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	  `event_area` int(10) unsigned NOT NULL,
+	  `event_user` int(10) unsigned NOT NULL,
+	  `event_typeref` int(10) unsigned NOT NULL,
+	  `event_start_date` date NOT NULL,
+	  `event_end_date` date DEFAULT NULL,
+	  PRIMARY KEY (`event_id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1" );
+    }
+
+    public function initalizeEventTypeTable() {
+	$this->db->query( "CREATE TABLE IF NOT EXISTS `event_type` (
+	 `event_type_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	 `event_type_name` varchar(255) NOT NULL,
+	 `event_type_hasduration` tinyint(1) NOT NULL DEFAULT '0',
+	 `event_type_tostats` tinyint(1) NOT NULL DEFAULT '1',
+	 `event_type_effects_borrowing` tinyint(1) NOT NULL DEFAULT '1',
+	 PRIMARY KEY (`event_type_id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1" );
+    }
+
+
+
+
 
 }
 

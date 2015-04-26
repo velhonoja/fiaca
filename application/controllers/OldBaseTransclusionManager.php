@@ -9,4 +9,12 @@ class OldBaseTransclusionManager extends CI_Controller {
         
     }
     
+    public function transcluseOldAlueet() {
+        $this->load->model("Oldbase_transclusion_model");
+        $alueet = $this->Oldbase_transclusion_model->getOldAlueet();
+        foreach( $alueet as $alue ) {
+            echo "<p>processing: " . $alue->alue_code . "</p>";
+        }
+    }
+    
 }

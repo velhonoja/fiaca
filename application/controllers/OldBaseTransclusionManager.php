@@ -22,11 +22,27 @@ class OldBaseTransclusionManager extends CI_Controller {
     }
     
     public function transcluseOldAlueet() {
+        
         $this->load->model("Oldbase_transclusion_model");
+        
         $alueet = $this->Oldbase_transclusion_model->getOldAlueet();
+        $counter = 0;
+        
         foreach( $alueet as $alue ) {
-            echo "<p>processing: " . $alue->alue_code . "</p>";
+            echo "<p>processing: " . $alue->alue_code . " -- ";
+            
+            $new_data = array(
+                'area_code' => $alue->alue_code,
+                'area_location' => $alue->alue_detail,
+                'area_tostats' => 1, // pistetään defaulttina true, katson käsin nämä sit editillä myöhemmin pois. Liikealueet sekä P1
+                'area_group' => $alue->alue_location
+            );
+            
+            $counter += 1;
         }
+        
+        echo "<h3>Processed: $counter</h3>";
+        
     }
     
 }

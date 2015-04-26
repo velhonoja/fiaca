@@ -98,6 +98,23 @@ class FiacaInstall extends CI_Controller {
 	 `event_type_effects_borrowing` tinyint(1) NOT NULL DEFAULT '1',
 	 PRIMARY KEY (`event_type_id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1" );
+	
+	// general "borrowing" event type, that usually means that area has been 
+	// assigned/borrowed/given to some user for working there
+	$this->db->query( "INSERT INTO  `event_type` 
+		( `event_type_name`,`event_type_hasduration`,`event_type_tostats`,`event_type_effects_borrowing` )
+		VALUES(
+		'Borrowing',1,0,1
+		)" );
+	
+	// general "done" event type that means that work has been completed/done
+	// on some area
+	$this->db->query( "INSERT INTO  `event_type` 
+		( `event_type_name`,`event_type_hasduration`,`event_type_tostats`,`event_type_effects_borrowing` )
+		VALUES(
+		'Done',0,1,1
+		)" );
+	
     }
 
 
@@ -107,13 +124,3 @@ class FiacaInstall extends CI_Controller {
 }
 
 // EOF
-
-
-
-/* 
-	CREATE TABLE `USER` (
-	`USER_ID` int(11) NOT NULL auto_increment,
-	`USER_FIRSTNAME` VARCHAR(255) NOT NULL,
-	`USER_LASTNAME` VARCHAR(255) NOT NULL,
-	`USER_DISABLED` BOOLEAN, PRIMARY KEY  (`USER_ID`)) ENGINE=MyISAM;
-*/

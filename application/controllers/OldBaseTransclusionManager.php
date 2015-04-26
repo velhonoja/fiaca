@@ -26,11 +26,13 @@ class OldBaseTransclusionManager extends CI_Controller {
         $this->load->model("Oldbase_transclusion_model");
         
         $alueet = $this->Oldbase_transclusion_model->getOldAlueet();
-        $counter = 0;
+        $error_counter = 0;
+        $succes_counter = 0;
         
         foreach( $alueet as $alue ) {
             echo "<p>processing: " . $alue->alue_code . " -- ";
             
+            // Creating new area instance
             $new_data = array(
                 'area_code' => $alue->alue_code,
                 'area_location' => $alue->alue_detail,
@@ -38,11 +40,22 @@ class OldBaseTransclusionManager extends CI_Controller {
                 'area_group' => $alue->alue_location
             );
             
-            $counter += 1;
+            
+            // Importing the new area instance data to database
+            if ( $this->Oldbase_transclusion_model->insertNewAlue( $data ) ) {
+                echo ".. DONE!</p>";
+                $succes_counter += 1;
+            } else {
+                echo ".. ERROR!</p>";
+                $error_counter += 1;
+            }
+            
         }
         
-        echo "<h3>Processed: $counter</h3>";
+        echo "<h3>Processed: $succes_counter</h3>";
+        echo "<h3>Errors: $error_counter</h3>";
         
-    }
+    } // endof transcluseOldAlueet method
     
-}
+    
+} //EOF

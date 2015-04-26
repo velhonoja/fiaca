@@ -22,4 +22,8 @@ class Oldbase_transclusion_model extends CI_Model {
     }
     
     
+    public function importNewAlue( $data ) {
+        return $this->db->insert("area", $data);
+    }
+    
 }

@@ -42,7 +42,7 @@ class OldBaseTransclusionManager extends CI_Controller {
             
             
             // Importing the new area instance data to database
-            if ( $this->Oldbase_transclusion_model->insertNewAlue( $data ) ) {
+            if ( $this->Oldbase_transclusion_model->insertNewAlue( $new_data ) ) {
                 echo ".. DONE!</p>";
                 $succes_counter += 1;
             } else {

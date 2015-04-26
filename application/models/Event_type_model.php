@@ -6,6 +6,8 @@ class Event_type_model extends CI_Model {
 
         public function __construct()
         {
+            // Database is already loaded in autoload.conf?
+            // This should be unnecessary.
                 $this->load->database();
         }
         

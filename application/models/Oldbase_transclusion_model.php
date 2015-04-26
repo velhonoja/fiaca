@@ -10,6 +10,10 @@
 
 class Oldbase_transclusion_model extends CI_Model {
     
+    /*
+     * Returns items from old_alue table ordered by alue_code ascending.
+     * Array of Objects.
+     */
     public function getOldAlueet() {
         return  $this->db
                 ->order_by("alue_code", "asc")

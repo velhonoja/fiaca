@@ -1,3 +1,4 @@
 /nbproject/*
-*.php~
+/bower_components/*
+*.*~
 .gitignore~

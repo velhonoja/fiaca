@@ -5,3 +5,13 @@
 * {
     font-family : helvetica, verdana, arial, sans-serif;
 }
+
+
+
+
+
+/* Styles for form elements */
+.fiaca-form-input-container{
+	display: block;
+	margin: 10px;
+}

@@ -14,9 +14,10 @@ class AreaManager extends CI_Controller {
 	function index()
 	{
 		
-		//if(  ){
-		
-		//}
+
+		if( $this->input->post(NULL, TRUE) ){ // if we have post data, lets do something about that
+			$this->handle_form();
+		}
 		
 		$data = array(
 		    'content' => "AreaManager/front",
@@ -24,6 +25,7 @@ class AreaManager extends CI_Controller {
 		);
 		
 		$this->load->view("template", $data);
+		
 	}
 	
 	
@@ -31,37 +33,28 @@ class AreaManager extends CI_Controller {
 	{			
 		$this->form_validation->set_rules('area_code', 'area_code', 'required|trim');			
 		$this->form_validation->set_rules('area_location', 'area_location', 'required|trim');				
-		$this->form_validation->set_rules('area_tostats', 'area_tostats', '');			
-		$this->form_validation->set_rules('area_group', 'area_group', '');
+		//$this->form_validation->set_rules('area_tostats', 'area_tostats', '');			
+		$this->form_validation->set_rules('area_group', 'area_group', 'trim');
 			
-		$this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
+		//$this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
 	
 		if ($this->form_validation->run() == FALSE) // validation hasn't been passed
 		{
-			$this->load->view('Area Manager_view');
+			// $this->load->view('Area Manager_view');
 		}
 		else // passed validation proceed to post success logic
 		{
-		 	// build array for the model
-			
+		 	
+			// build array for the model
 			$form_data = array(
-					       	'area_code' => set_value('area_code'),
-					       	'area_location' => set_value('area_location'),
-					       	'area_tostats' => set_value('area_tostats'),
-					       	'area_group' => set_value('area_group')
+					       	'area_code' => $this->input->post('area_code'),
+					       	'area_location' => $this->input->post('area_location'),
+					       	'area_tostats' => ($this->input->post('area_tostats') != FALSE ? 1 : 0),
+					       	'area_group' => $this->input->post('area_group')
 						);
-					
-			// run insert model to write data to db
 		
-			if ($this->Area_model->SaveForm($form_data) == TRUE) // the information has therefore been successfully saved in the db
-			{
-				redirect('AreaManagerController/success');   // or whatever logic needs to occur
-			}
-			else
-			{
-			echo 'An error occurred saving your information. Please try again later';
-			// Or whatever error handling is necessary
-			}
+			$this->area_model->save($form_data, $this->input->post('area_id'));
+			
 		}
 	}
 

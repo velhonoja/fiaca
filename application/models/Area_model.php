@@ -17,24 +17,18 @@ class Area_model extends CI_Model {
 	
 	
 
-      /** 
-       * function SaveForm()
-       *
-       * insert form data
-       * @param $form_data - array
-       * @return Bool - TRUE or FALSE
-       */
-
-	function SaveForm($form_data)
+	function save($form_data, $row_id)
 	{
-		$this->db->insert('area', $form_data);
 		
-		if ($this->db->affected_rows() == '1')
-		{
-			return TRUE;
+		// if we have id lets update existing row
+		if( $row_id ){
+			//echo "<h1>Trying to update...</h1>";
+			$this->db->update('area', $form_data, 'area_id="'.$row_id.'"');
+		}else{ // or create new
+			//echo "<h1>Creating new...</h1>";
+			$this->db->insert('area', $form_data);
 		}
 		
-		return FALSE;
 	}
 	
 	

@@ -33,7 +33,18 @@ class Event_type_model extends CI_Model {
 
 
 
-//update
+	function save($form_data, $row_id)
+	{
+		
+		// if we have id lets update existing row
+		if( $row_id ){
+			$this->db->update('event_type', $form_data, 'event_type_id="'.$row_id.'"');
+		}else{ // or create new
+			$this->db->insert('event_type', $form_data);
+		}
+		
+	}
+	
 
 // delete? do we need to delete anyway?
         

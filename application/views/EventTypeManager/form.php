@@ -20,7 +20,12 @@ http://getbootstrap.com/components/#panels
     
 	<?php echo form_open('eventTypeManager'); ?>
 	
-	<?php echo form_hidden('event_type_id',  $event_type['event_type_id'] ); ?>
+
+	<?php 
+	if( array_key_exists('event_type_id', $event_type) ){
+		echo form_hidden('event_type_id',  $event_type['event_type_id'] );
+	}
+	?>
   
 	<?php echo fiaca_input($event_type, "event_type_name"); ?>
 	

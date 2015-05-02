@@ -15,7 +15,7 @@ http://getbootstrap.com/components/#navbar
 			<?php echo anchor("eventTypeManager", "Manage event types"); ?>
 		</li>
 		<li>
-			<a href="#">Manage areas</a>
+			<?php echo anchor("areaManager", "Manage areas"); ?>
 		</li>
 		
 		

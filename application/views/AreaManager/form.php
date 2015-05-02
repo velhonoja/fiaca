@@ -1,27 +1,16 @@
-<!--
-
-Form to view/edit event_type
-
-Using panel from bootstrap.
-
-howto use:
-http://getbootstrap.com/components/#panels
-
--->
-
-
-
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><?php echo $event_type['event_type_name'] ?></h3>
+    <h3 class="panel-title"><?php echo $area['area_code'] ?></h3>
   </div>
   <div class="panel-body">
   
     
-	<?php echo form_open('eventTypeManager'); ?>
+	<?php echo form_open('areaManager'); ?>
 	
-	<?php echo form_hidden('event_type_id',  $event_type['event_type_id'] ); ?>
+	<?php echo form_hidden('area_id',  $event_type['area_id'] ); ?>
   
+	
+	
 	<?php echo fiaca_input($event_type, "event_type_name"); ?>
 	
 	

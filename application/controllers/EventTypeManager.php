@@ -7,7 +7,10 @@ class EventTypeManager extends CI_Controller {
         public function __construct()
         {
                 parent::__construct();
+                $this->load->helper('fiacaform_helper');
+                $this->load->library('form_validation');
                 $this->load->model('event_type_model');
+                
         }
 
 	
@@ -21,6 +24,14 @@ class EventTypeManager extends CI_Controller {
         
         $this->load->view("template", $data);
         
+    }
+    
+    public function handle_form()
+    {
+    	    
+    	    
+    	    
+    	    
     }
     
 }

@@ -1,31 +1,7 @@
 <?php 
 
 
-// TODO: figure out where I should put these helper functions?
 
-
-/*
-Ugly helper function for making input-element
-
-*/
-function createSimpleInput($event_type, $name){
-	$html = "<div class='fiaca-form-input-container'>";
-	$html .= $name."<br />";
-	$html .= form_input($name, $event_type[$name]);
-	$html .= "</div>";
-	return $html;
-}
-
-/*
-Ugly helper function for making checkbox
-*/
-function createSimpleCheckbox($event_type, $name){
-	$html = "<div class='fiaca-form-input-container'>";
-	$html .= form_checkbox($name, "boolean_value", $event_type[$name]);
-	$html .= $name;
-	$html .= "</div>";
-	return $html;
-}
 
 
 ?>

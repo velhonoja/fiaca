@@ -27,4 +27,5 @@ Roadmap:
 Work coordination:
 - Data transclusion/transfer from old system: (reimakarvonen)
 - Finish event_type controller/model/view, create default event types (velhonoja)
+- Create user management gui
 

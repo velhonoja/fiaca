@@ -11,7 +11,7 @@ Features
 
 Possible other features planned (open for discussion)
 - Print area-information
-
+- some kind of "status/information" display area for gui to tell user what is going on, and if requested operations succeeded?
 
 
 

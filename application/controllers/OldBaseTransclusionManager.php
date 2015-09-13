@@ -16,14 +16,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class OldBaseTransclusionManager extends CI_Controller {
     
+    public function __construct() {
+        parent::__construct();
+        
+        $this->load->model("Oldbase_transclusion_model");
+        
+    }
+    
+    
     public function index() {
         echo "<h3>Old database transclusion tools</h3>";
         
     }
     
     public function transcluseOldAlueet() {
-        
-        $this->load->model("Oldbase_transclusion_model");
         
         $alueet = $this->Oldbase_transclusion_model->getOldAlueet();
         $error_counter = 0;
@@ -57,5 +63,19 @@ class OldBaseTransclusionManager extends CI_Controller {
         
     } // endof transcluseOldAlueet method
     
+    
+    public function transcluseOldPerson() {
+        
+        $users = $this->Oldbase_transclusion_model->getOldPersons();
+        
+        foreach( $users as $user ) {
+            $this->handleOldUser( $user );
+        }
+        
+    }
+    
+    private function handleOldUser( $old_user ) {
+        
+    }
     
 } //EOF

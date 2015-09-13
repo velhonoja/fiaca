@@ -26,4 +26,17 @@ class Oldbase_transclusion_model extends CI_Model {
         return $this->db->insert("area", $data);
     }
     
+    
+    /*
+     * Returns persons from old database table.
+     */
+    public function getOldPersons() {
+        return $this->db
+                ->order_by("person_id", "asc")
+                ->get("old_person")->result();
+    } 
+    
+    public function insertNewPerson( $data ) {
+        
+    }
 }

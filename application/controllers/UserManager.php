@@ -11,4 +11,9 @@ class UserManager extends CI_Controller {
         $this->load->view("UserManager/users_front", $data);
     }
     
+    public function edit( $user_id = null ) {
+        
+    }
+    
+    
 }

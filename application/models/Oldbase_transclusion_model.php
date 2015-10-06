@@ -37,6 +37,6 @@ class Oldbase_transclusion_model extends CI_Model {
     } 
     
     public function insertNewPerson( $data ) {
-        
+        return $this->db->insert("user", $data);
     }
 }

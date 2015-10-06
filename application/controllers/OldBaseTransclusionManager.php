@@ -26,7 +26,13 @@ class OldBaseTransclusionManager extends CI_Controller {
     
     public function index() {
         echo "<h3>Old database transclusion tools</h3>";
-        
+        echo "<h3>WARNING!! Do this only once to initalize from old data. Otherwise will add duplicate entries. (not so smart funcion)</h3>";
+        echo "<ul type=\"square\">";
+        echo anchor("OldBaseTransclusionManager/transcluseOldAlueet", "Transcluse ALUEET table") . "</br>";    
+        echo anchor("OldBaseTransclusionManager/transcluseOldPerson", "Transcluse PERSON table") . "</br/>";    
+        // echo anchor("OldBaseTransclusionManager/transcluseOldAlueet", "Transcluse EVENTS table");    
+        //echo anchor("OldBaseTransclusionManager/transcluseOldAlueet", "Transcluse SOMETHING table");    
+        echo "</ul>";
     }
     
     public function transcluseOldAlueet() {
@@ -68,13 +74,30 @@ class OldBaseTransclusionManager extends CI_Controller {
         
         $users = $this->Oldbase_transclusion_model->getOldPersons();
         
+        $counter = 0;
+        
         foreach( $users as $user ) {
             $this->handleOldUser( $user );
+            $counter++;
         }
+        
+        echo "<p>$counter users were processed.</p>";
         
     }
     
     private function handleOldUser( $old_user ) {
+        $data = array(
+            'user_id' => $old_user->person_id,
+            'user_firstname' => $old_user->person_name,
+            'user_lastname' => $old_user->person_lastname,
+            'user_disabled' => 0
+        );
+        
+        if ( $this->Oldbase_transclusion_model->insertNewPerson($data) ) {
+            echo $old_user->person_name . " " . $old_user->person_lastname . " lisätty </br>";
+        } else {
+            echo "ERROR: " . $old_user->user_name;
+        }
         
     }
     

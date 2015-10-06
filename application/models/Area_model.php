@@ -31,7 +31,20 @@ class Area_model extends CI_Model {
 		
 	}
 	
-	
+	/*
+         * Finds area ID based on area code
+         */
+        public function findAreaID( $area_code ) {
+            $area_id = $this->db->where( "area_code", $area_code )
+                    ->limit(1)
+                    ->get("area")->row()->area_id;
+            if ( is_numeric($area_id) ) {
+                return $area_id;
+            } else {
+                return NULL;
+            }
+            
+        }
 	
 }
 ?>

@@ -39,4 +39,15 @@ class Oldbase_transclusion_model extends CI_Model {
     public function insertNewPerson( $data ) {
         return $this->db->insert("user", $data);
     }
+    
+    public function getOldEventsForArea( $old_area_id ) {
+        return $this->db->where("event_alue", $old_area_id)
+                ->order_by("event_id", "asc")
+                ->get("old_alue_events")->result();
+    }
+    
+    public function insertNewEvent( $data ) {
+        $this->db->insert("event", $data);
+    }
+    
 }

@@ -14,5 +14,7 @@
             &gt; &gt; <?php echo anchor("OldBaseTransclusionManager", "Old database transclusion manager tools for admins"); ?>
         </p>
     
+        <p><?php echo anchor("UserManager", "User Manager"); ?></p>
+        
 </div>
 

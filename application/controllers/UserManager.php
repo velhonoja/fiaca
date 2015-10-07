@@ -5,10 +5,11 @@ class UserManager extends CI_Controller {
     public function index() {
         
         $data = array(
-            'users' => $this->User_model->getAllUsers()
+            'users' => $this->User_model->getAllUsers(),
+            'content' => "UserManager/users_front"
         );
         
-        $this->load->view("UserManager/users_front", $data);
+        $this->load->view("template", $data);
     }
     
     public function edit( $user_id = null ) {

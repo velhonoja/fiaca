@@ -22,14 +22,22 @@ class OldBaseTransclusionManager extends CI_Controller {
     }
 
     public function index() {
+        
+        $this->load->view("header");
+        $this->load->view("navbar");
+        
+        
         echo "<h3>Old database transclusion tools</h3>";
-        echo "<h3>WARNING!! Do this only once to initalize from old data. Otherwise will add duplicate entries. (not so smart funcion)</h3>";
+        echo "<div class=\"alert alert-danger\" role=\"alert\"><h3>WARNING!! Do this only once to initalize from old data. Otherwise will add duplicate entries. (not so smart funcion)</h3></div>";
         echo "<ul type=\"square\">";
         echo anchor("OldBaseTransclusionManager/transcluseOldAlueet", "Transcluse ALUEET table") . "</br>";
         echo anchor("OldBaseTransclusionManager/transcluseOldPerson", "Transcluse PERSON table") . "</br/>";
         echo anchor("OldBaseTransclusionManager/transcluseOldEvents", "Transcluse EVENTS table");    
         //echo anchor("OldBaseTransclusionManager/transcluseOldAlueet", "Transcluse SOMETHING table");    
         echo "</ul>";
+        $this->load->view("footer");
+        
+        
     }
 
     public function transcluseOldAlueet() {

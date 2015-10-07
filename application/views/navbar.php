@@ -17,7 +17,9 @@ http://getbootstrap.com/components/#navbar
 		<li>
 			<?php echo anchor("areaManager", "Manage areas"); ?>
 		</li>
-		
+		<li>
+			<?php echo anchor("UserManager", "Manage users"); ?>
+		</li>
 		
 		
 		<!-- doing nothing, just added because looks c00l.. -->

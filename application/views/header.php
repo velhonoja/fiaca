@@ -2,6 +2,8 @@
 <html>
 
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
     	<?php echo meta('Content-type', 'text/html; charset=utf-8', 'equiv'); ?>
     	
     	 <!-- jQuery -->

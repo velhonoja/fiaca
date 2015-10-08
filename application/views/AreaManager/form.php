@@ -1,9 +1,16 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><?php echo $area['area_code'] ?></h3>
+
   </div>
   <div class="panel-body">
   
+      <?php 
+	if( array_key_exists('area_id', $area) ){
+		echo anchor("EventManager/area_aspect/" . $area['area_id'], "Edit events for this area ");
+		echo "(TODO: better gui/navigation for this?, maybe hide area management and make simpler gui for choosing area?)";
+    	}
+    ?>
     
 	<?php echo form_open('areaManager'); ?>
 	

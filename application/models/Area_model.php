@@ -5,6 +5,15 @@ class Area_model extends CI_Model {
 	
 	
 	
+        /* 
+         * get by id
+         */
+	public function get( $id = -1)
+	{
+		$query = $this->db->get_where('area', array('area_id' => $id));
+		return $query->row_array();
+	}
+	
 	
 	
 	public function getAll()

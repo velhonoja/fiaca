@@ -8,7 +8,7 @@
       <?php 
 	if( array_key_exists('area_id', $area) ){
 		echo anchor("EventManager/area_aspect/" . $area['area_id'], "Edit events for this area ");
-		echo "(TODO: better gui/navigation for this?, maybe hide area management and make simpler gui for choosing area?)";
+		echo "<div class='todo'>(TODO: better gui/navigation for this?, maybe hide area management and make simpler gui for choosing area?)</div>";
     	}
     ?>
     

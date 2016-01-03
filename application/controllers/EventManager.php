@@ -37,18 +37,42 @@ class EventManager extends CI_Controller  {
     
     	    
     }
+     
+    /* 
+    Edit/view events that are linked to this area.
     
+    We dont need to add "select area" to form, because we know it already.
+    
+    TODO: add "select user", start/end-dates, and event type form-fields
+    */
     public function area_aspect( $area_id ){
     	
-		$data = array(
-		    'content' => "EventManager/area_aspect",
-		    'events' => $this->event_model->getForArea($area_id, 50),
-		    'area' => $this->area_model->get($area_id),
-		    'users' => $this->user_model->getAllUsers(),
-		    'event_types' => $this->event_type_model->getAll()
-		); 
-		
-		$this->load->view("template", $data);
+    	$this->form_validation->set_rules('area_id','Area','required');
+    	$this->form_validation->set_rules('user_id','User','required');
+    	$this->form_validation->set_rules('event_type_id','Event type','required');
+    	$this->form_validation->set_rules('event_start_date','Start date','required');
+    	//$this->form_validation->set_rules('event_end_date','End date','');
+    	 
+    	// validate if there is some form data (user is selected)
+    	if( $this->input->post('user_id', true) ){
+			if ($this->form_validation->run() ){
+				// save new event
+				echo "should save new event now..";
+				
+				// clear form data
+				echo " .. should clear form data now..";
+			}else{ echo ".. NOT VALID .. "; }
+		}else{ echo "no need to validate form, no user selected.. "; }
+    	
+	$data = array(
+	    'content' => "EventManager/area_aspect",
+	    'events' => $this->event_model->getForArea($area_id, 50),
+	    'area' => $this->area_model->get($area_id),
+	    'users' => $this->user_model->getAllUsers(),
+	    'event_types' => $this->event_type_model->getAll()
+	); 
+	
+	$this->load->view("template", $data);
 	
 	    
     }

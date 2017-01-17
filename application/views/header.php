@@ -22,8 +22,6 @@
     	<?php echo link_tag('vendor/jquery-ui/themes/smoothness/jquery-ui.css'); ?>
     	<?php echo link_tag('vendor/jquery-ui-bootstrap/jquery.ui.theme.css'); ?>
 
-    	 
-    	 
         <?php echo link_tag('css/default.css'); ?>
         
         <title>Fiaca</title>
